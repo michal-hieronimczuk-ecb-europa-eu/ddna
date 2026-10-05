@@ -1,0 +1,274 @@
+<style>
+  .ddna-tabs-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 10px 100px 10px;
+  }
+  .ddna-table-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    flex: 0 0 100%;
+    overflow-x: auto;
+  }
+  .ddna-table-container > .gs-table-container {
+    min-width: 0;
+  }
+  .ddna-table-container table {
+    min-width: clamp(var(--ddna-table-width-min, 1600px), var(--ddna-table-width-mid, 115vw), var(--ddna-table-width-max, 2200px));
+    width: clamp(var(--ddna-table-width-min, 1600px), var(--ddna-table-width-mid, 115vw), var(--ddna-table-width-max, 2200px));
+    max-width: none;
+    table-layout: fixed;
+  }
+  .ddna-table-container th,
+  .ddna-table-container td {
+    overflow-wrap: anywhere;
+  }
+  .ddna-tabs-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 500;
+  }
+  .ddna-tabs-container h2 {
+    font-weight: 500;
+  }
+
+  .tabs.ddna-tabbed-table--horizontal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+  }
+  .ddna-tabbed-table.ddna-tabbed-table--horizontal .t-btn-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*width: 100%;*/
+    height: auto;
+    min-height: 60px;
+    align-items: center;
+    /*background-color: #262626;*/
+    border-radius: 5px;
+    padding: 0 20px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1) !important;
+    /*position: s;*/
+  }
+
+  .ddna-tabbed-table.ddna-tabbed-table--horizontal .t-btn-container .t-btn {
+    padding: 5px 10px;
+    margin-right: 10px;
+    color: #bdbdbd;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    padding-left: 10px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+  }
+
+  .t-btn:hover {
+    background-color: #f1fff0;
+    /*background-color: #f4e4e4;*/
+    border-right: #cecece 1px solid;
+    color: #202020 !important;
+  }
+
+  .t-btn:hover span:nth-child(1) {
+    content: " ";
+    display: flex;
+    width: 2px;
+    height: 60%;
+    background: #bdbdff;
+    position: absolute;
+    right: calc(100% - 5px);
+  }
+
+  .t-btn:hover span:nth-child(2) {
+    background: black;
+    position: absolute;
+    right: 100%;
+    width: 2px;
+    height: 8px;
+  }
+
+  td {
+    position: relative;
+    clear: both;
+    padding: 0;
+    line-height: 40px;
+  }
+
+  .table__filter--text-source.highlighted {
+    background: #acded2;
+  }
+
+  .ddna-table-wrapper {
+    width: 100%;
+    min-width: 0;
+    display: none;
+  }
+  .ddna-table-wrapper.active {
+    display: block;
+  }
+
+  .ddna-tabbed-table.ddna-tabbed-table--horizontal .t-btn-container .t-btn.active {
+    color: #000;
+  }
+  .t-btn.active span:nth-child(1) {
+    content: " ";
+    display: flex;
+    width: 2px;
+    height: 60%;
+    background: #bdbdff;
+    position: absolute;
+    right: calc(100% - 5px);
+  }
+  .t-btn.active span:nth-child(2) {
+    background: black;
+    position: absolute;
+    right: 100%;
+    width: 2px;
+    height: 8px;
+  }
+
+  .ddna-tabbed-table.ddna-tabbed-table--horizontal .t-panel-container {
+    padding: 20px 0;
+  }
+  .ddna-tabbed-table.ddna-tabbed-table--horizontal .t-panel-container .t-panel {
+    color: #262626;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+  }
+  .ddna-tabbed-table.ddna-tabbed-table--horizontal .t-panel-container .t-panel.active {
+    opacity: 1;
+    height: auto;
+  }
+
+  .tabs.ddna-tabbed-table--vertical {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+  }
+  .ddna-tabbed-table.ddna-tabbed-table--vertical .t-btn-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    background-color: #262626;
+    border-radius: 5px;
+    padding: 20px;
+    min-width: 150px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+  .ddna-tabbed-table.ddna-tabbed-table--vertical .t-btn-container .t-btn {
+    padding: 5px 10px;
+    color: #bdbdbd;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    padding-left: 10px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  .ddna-tabbed-table.ddna-tabbed-table--vertical .t-btn-container .t-btn.active {
+    color: #000;
+  }
+  .ddna-tabbed-table.ddna-tabbed-table--vertical .t-panel-container {
+    padding: 20px;
+  }
+  .ddna-tabbed-table.ddna-tabbed-table--vertical .t-panel-container .t-panel {
+    color: #262626;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+    height: auto;
+    overflow: hidden;
+  }
+  .ddna-tabbed-table.ddna-tabbed-table--vertical .t-panel-container .t-panel.active {
+    opacity: 1;
+  }
+
+
+</style>
+<div class="ddna-tabs-container">
+  <div class="ddna-tabbed-table ddna-tabbed-table--horizontal">
+    <div class="t-btn-container">
+      {% for key, tab in tabs %}
+        <p class="t-btn{% if loop.first %} active{% endif %}" data-name="ddna-tab-{{ key }}">{{ tab }}
+          <span></span>
+          <span></span>
+        </p>
+      {% endfor %}
+    </div>
+    <details class="ddna-report-settings">
+      <summary>Konfiguracja wyświetlenia raportu</summary>
+      <div class="ddna-report-settings__body">
+        <label class="ddna-report-settings__contrast">
+          <input type="checkbox" id="ddna-contrast-focus">
+          <span>Kolor kontrastu dla focus indicator</span>
+        </label>
+        <label class="ddna-report-settings__field" for="ddna-focus-red-tone">
+          <span>Odcień focus indicator</span>
+          <select id="ddna-focus-red-tone">
+            <option value="yellow">Czerwony w stronę żółtego</option>
+            <option value="green">Czerwony w stronę zielonego</option>
+            <option value="blue">Czerwony w stronę niebieskiego</option>
+          </select>
+        </label>
+        <label class="ddna-report-settings__field" for="ddna-font-size">
+          <span>Wielkość czcionki</span>
+          <select id="ddna-font-size">
+            <option value="small">Mała</option>
+            <option value="medium" selected>Średnia</option>
+            <option value="large">Duża</option>
+          </select>
+        </label>
+      </div>
+    </details>
+    <div class="form-control-wrapper ddna-filter-bar">
+      <div class="ddna-filter-field">
+        <label for="searchField">Search values</label>
+        <div class="ddna-filter-input-wrap">
+          <input autocomplete="off" type="text" class="form-control ddna-filter-input" placeholder="Search across values" id="searchField">
+          <button type="button" class="ddna-filter-clear" data-clear-filter="searchField" aria-label="Remove search filter" hidden>Remove filter</button>
+        </div>
+      </div>
+      <div class="ddna-filter-field">
+        <label for="filterField">Filter rows</label>
+        <div class="ddna-filter-input-wrap">
+          <input autocomplete="off" type="text" class="form-control ddna-filter-input" placeholder="Filter this table" id="filterField">
+          <button type="button" class="ddna-filter-clear" data-clear-filter="filterField" aria-label="Remove table filter" hidden>Remove filter</button>
+        </div>
+      </div>
+    </div>
+    <div class="t-panel-container">
+      {% for key, c in content %}
+        <div class="ddna-table-wrapper{% if loop.first %} active{% endif %} ddna-tab-{{ key }}">
+          {{ c|raw }}
+        </div>
+      {% endfor %}
+{#      <div class="elementary-action-container">#}
+{#        <div class="action-box action-box--upper-right">Search for</div>#}
+{#        <div class="action-box action-box--bottom-right">Filter by</div>#}
+{#        <div class="action-box action-box--bottom-left">Extract</div>#}
+{#        <div class="action-box action-box--upper-left">Transform</div>#}
+{#      </div>#}
+    </div>
+    <div class="ddna-action-announcement" role="status" aria-live="polite"></div>
+  </div>
+</div>

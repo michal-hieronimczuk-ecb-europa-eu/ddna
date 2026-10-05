@@ -1,0 +1,543 @@
+.ddna-json-value-button {
+  max-width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #52616b;
+  border-radius: 3px;
+  background: #fff;
+  color: #17252a;
+  font: inherit;
+  line-height: 1.3;
+  cursor: pointer;
+}
+
+.ddna-json-value-button:hover,
+.ddna-json-value-button:focus-visible {
+  border-color: #006b64;
+  outline: 2px solid #006b64;
+  outline-offset: 2px;
+}
+
+.ddna-text-preview-trigger {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+  cursor: help;
+}
+
+.ddna-text-preview-trigger:focus-visible {
+  outline: 2px solid #006b64;
+  outline-offset: 2px;
+}
+
+.ddna-text-preview {
+  position: fixed;
+  z-index: 1100;
+  box-sizing: border-box;
+  width: max-content;
+  max-width: min(42rem, calc(100vw - 16px));
+  max-height: min(50vh, 24rem);
+  overflow: auto;
+  padding: 12px 14px;
+  border: 1px solid #52616b;
+  border-radius: 3px;
+  background: #fff;
+  color: #17252a;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 28%);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.45;
+}
+
+.ddna-text-preview[hidden] {
+  display: none;
+}
+
+.ddna-filter-bar {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 12px 0 4px;
+  padding: 16px;
+  border: 1px solid #c8d0d3;
+  border-radius: 4px;
+  background: #f2f5f5;
+}
+
+.ddna-filter-field {
+  min-width: 0;
+}
+
+.ddna-filter-field > label {
+  display: block;
+  margin: 0 0 6px;
+  color: #26363a;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.ddna-filter-input-wrap {
+  display: flex;
+  min-width: 0;
+  align-items: stretch;
+}
+
+.ddna-filter-input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 42px;
+  padding: 8px 12px;
+  border: 1px solid #718087;
+  border-right: 0;
+  border-radius: 3px 0 0 3px;
+  background: #fff;
+  color: #17252a;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.ddna-filter-input:focus {
+  position: relative;
+  z-index: 1;
+  border-color: #006b64;
+  outline: 2px solid #006b64;
+  outline-offset: -2px;
+}
+
+.ddna-filter-clear {
+  flex: 0 0 auto;
+  min-height: 42px;
+  padding: 8px 12px;
+  border: 1px solid #718087;
+  border-radius: 0 3px 3px 0;
+  background: #fff;
+  color: #174b47;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.ddna-filter-clear:hover,
+.ddna-filter-clear:focus-visible {
+  background: #e3efed;
+  outline: 2px solid #006b64;
+  outline-offset: 2px;
+}
+
+.ddna-filter-clear[hidden] {
+  display: none;
+}
+
+.ddna-report-settings {
+  width: 100%;
+  margin: 10px 0 0;
+  border: 1px solid #c8d0d3;
+  border-radius: 4px;
+  background: #fff;
+  color: #26363a;
+}
+
+.ddna-report-settings > summary {
+  padding: 12px 16px;
+  background: #f2f5f5;
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.ddna-report-settings > summary:focus-visible,
+.ddna-report-settings select:focus-visible,
+.ddna-report-settings input:focus-visible {
+  outline: 2px solid #006b64;
+  outline-offset: 2px;
+}
+
+.ddna-report-settings__body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px 24px;
+  padding: 16px;
+}
+
+.ddna-report-settings__field select:disabled {
+  opacity: 0.58;
+  cursor: not-allowed;
+}
+
+.ddna-report-settings__contrast,
+.ddna-report-settings__field {
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 8px;
+  color: #26363a;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.ddna-report-settings__contrast {
+  min-width: 240px;
+}
+
+.ddna-report-settings__field {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 4px;
+  font-weight: 600;
+}
+
+.ddna-report-settings__field select {
+  min-width: 210px;
+  min-height: 38px;
+  padding: 6px 32px 6px 9px;
+  border: 1px solid #718087;
+  border-radius: 3px;
+  background: #fff;
+  color: #17252a;
+  font: inherit;
+  font-size: 13px;
+}
+
+.ddna-tabs-container[data-font-size="small"] {
+  --ddna-cell-font: 12px;
+}
+
+.ddna-tabs-container[data-font-size="medium"] {
+  --ddna-cell-font: 14px;
+}
+
+.ddna-tabs-container[data-font-size="large"] {
+  --ddna-cell-font: 16px;
+}
+
+.ddna-reader-focus {
+  position: relative;
+  min-width: 0;
+  padding: 3px 8px;
+}
+
+.ddna-reader-focus::before,
+.ddna-reader-focus::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 90ms ease-out;
+}
+
+.ddna-reader-focus::before {
+  top: 7%;
+  bottom: 7%;
+  left: -2px;
+  width: 2px;
+  background: linear-gradient(to bottom, #8798c2 0 68%, transparent 68% 81%, #a9bdcf 81% 100%);
+}
+
+.ddna-reader-focus::after {
+  top: 31%;
+  right: -2px;
+  width: 2px;
+  height: 38%;
+  background: #d75b65;
+}
+
+.ddna-reader-focus.is-selected::before,
+.ddna-reader-focus.is-selected::after {
+  opacity: 1;
+}
+
+.ddna-reader-focus.is-selected {
+  background: #f1f4f8;
+}
+
+.ddna-contrast-focus .ddna-reader-focus.is-selected {
+  border-left: 1px solid #d9d5e7;
+  border-right: 1px solid #d9d5e7;
+  background: #fbfaff;
+}
+
+.ddna-contrast-focus .ddna-reader-focus.is-selected::before {
+  background: linear-gradient(to bottom, var(--ddna-focus-pastel-one) 0 68%, transparent 68% 81%, var(--ddna-focus-pastel-two) 81% 100%);
+}
+
+.ddna-contrast-focus .ddna-reader-focus.is-selected::after {
+  background: var(--ddna-focus-red);
+}
+
+.ddna-cell-frame {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  min-width: 0;
+  transition: grid-template-columns 120ms ease-out;
+}
+
+.ddna-cell-frame.ddna-actions-visible {
+  grid-template-columns: minmax(0, 1fr) 24px;
+  gap: 8px;
+}
+
+.ddna-cell-actions {
+  display: none;
+  grid-template-rows: repeat(2, 20px);
+  gap: 3px;
+  width: 24px;
+  height: 43px;
+  align-content: center;
+}
+
+.ddna-cell-frame.ddna-actions-visible .ddna-cell-actions {
+  display: grid;
+}
+
+.ddna-cell-action-trigger {
+  display: grid;
+  width: 24px;
+  height: 20px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  color: #385b62;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ddna-cell-action-trigger:hover,
+.ddna-cell-action-trigger[aria-expanded="true"] {
+  background: #dce9e7;
+  color: #173d42;
+}
+
+.ddna-cell-action-trigger:focus-visible {
+  outline: 2px solid #006b64;
+  outline-offset: 1px;
+}
+
+.ddna-cell-action-panel {
+  position: fixed;
+  z-index: 1080;
+  display: grid;
+  min-width: 190px;
+  max-width: min(320px, calc(100vw - 16px));
+  gap: 3px;
+  padding: 6px;
+  border: 1px solid #64757c;
+  border-radius: 3px;
+  background: #fff;
+  color: #17252a;
+  box-shadow: 0 5px 18px rgb(0 0 0 / 28%);
+}
+
+.ddna-cell-action-panel[hidden] {
+  display: none;
+}
+
+.ddna-cell-action-panel button,
+.ddna-cell-action-panel a {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 2px;
+  background: #fff;
+  color: #174b47;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.35;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ddna-cell-action-panel button:hover,
+.ddna-cell-action-panel a:hover,
+.ddna-cell-action-panel button:focus-visible,
+.ddna-cell-action-panel a:focus-visible {
+  background: #e9f0ef;
+  outline: 0;
+}
+
+.ddna-action-announcement {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.ddna-table-container {
+  box-shadow: inset 0 0 0 transparent;
+  transition: box-shadow 140ms ease-out;
+  font-size: clamp(9px, calc(var(--ddna-cell-font, 14px) * 0.75), 12px);
+}
+.ddna-table-container.has-scroll-left {
+  box-shadow: inset 16px 0 14px -14px rgb(0 0 0 / 45%);
+}
+
+.ddna-table-container.has-scroll-right {
+  box-shadow: inset -16px 0 14px -14px rgb(0 0 0 / 45%);
+}
+
+.ddna-table-container.has-scroll-left.has-scroll-right {
+  box-shadow: inset 16px 0 14px -14px rgb(0 0 0 / 45%), inset -16px 0 14px -14px rgb(0 0 0 / 45%);
+}
+
+.ddna-table-container table {
+  width: clamp(var(--ddna-table-width-min, 1600px), var(--ddna-table-width-mid, 115vw), var(--ddna-table-width-max, 2200px));
+  min-width: clamp(var(--ddna-table-width-min, 1600px), var(--ddna-table-width-mid, 115vw), var(--ddna-table-width-max, 2200px));
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #24343a;
+  font: inherit;
+  font-size: var(--ddna-cell-font, 14px);
+  line-height: 1.45;
+}
+
+.ddna-table-container th,
+.ddna-table-container td {
+  box-sizing: border-box;
+  min-width: 100px;
+  max-width: 360px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #d5dddf;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.ddna-table-container th {
+  background: #edf2f2;
+  color: #26363a;
+  font-size: clamp(10px, calc(var(--ddna-cell-font, 14px) * 0.75), 12px);
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.ddna-table-container tbody tr:nth-child(even) {
+  background: #f7f9f9;
+}
+
+.ddna-table-container tbody tr:hover {
+  background: #eaf2f1;
+}
+
+.ddna-table-container .table__filter--text-source {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 3px 9px;
+  line-height: 1.45;
+}
+
+@media (max-width: 680px) {
+  .ddna-filter-bar {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
+
+}
+
+.ddna-json-dialog {
+  position: fixed;
+  inset: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  max-width: none;
+  height: 100vh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #fff;
+  color: #17252a;
+}
+
+.ddna-json-dialog::backdrop {
+  background: rgb(0 0 0 / 78%);
+}
+
+.ddna-json-dialog__header {
+  display: flex;
+  min-height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #c8d0d3;
+  background: #f2f5f5;
+}
+
+.ddna-json-dialog__header h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.ddna-json-dialog__close {
+  display: inline-grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid #52616b;
+  border-radius: 3px;
+  background: #fff;
+  color: #17252a;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ddna-json-dialog__content {
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(100vh - 61px);
+  margin: 0;
+  padding: 20px 24px 40px;
+  overflow: auto;
+  background: #fff;
+  color: #17252a;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 14px;
+  line-height: 1.55;
+  tab-size: 2;
+  white-space: pre;
+}
+
+@media (max-width: 600px) {
+  .ddna-report-settings__body {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ddna-report-settings__field,
+  .ddna-report-settings__field select {
+    width: 100%;
+  }
+
+  .ddna-json-dialog__header {
+    padding-inline: 12px;
+  }
+
+  .ddna-json-dialog__content {
+    padding: 14px 12px 28px;
+    font-size: 12px;
+  }
+}
