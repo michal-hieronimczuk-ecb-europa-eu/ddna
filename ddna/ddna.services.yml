@@ -1,0 +1,12 @@
+services:
+  ddna_config_matcher:
+    class: Drupal\ddna\ConfigMatcherService
+    arguments: ['@config.storage']
+
+  plugin.manager.seed:
+    class: Drupal\ddna\SeedPluginManager
+    parent: default_plugin_manager
+
+  plugin.manager.node:
+    class: Drupal\ddna\NodePluginManager
+    parent: default_plugin_manager

@@ -1,0 +1,8 @@
+name: 'Drupal DNA (ddna)'
+type: module
+description: 'Provides a automated Drupal specification to your Drupal instance.'
+package: Web Things
+configure: ddna.specification_summary
+dependencies:
+  - drupal:migrate_plus
+core_version_requirement: ^11

@@ -1,0 +1,18 @@
+ddna_tabbed_table:
+  version: VERSION
+  js:
+    js/ddna_tabbed_table.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+ddna_json_value_viewer:
+  version: VERSION
+  css:
+    theme:
+      css/ddna_json_value_viewer.css: {}
+  js:
+    js/ddna_json_value_viewer.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

@@ -1,0 +1,7 @@
+ddna.specification_summary:
+  path: '/admin/reports/ddna'
+  defaults:
+    _controller: '\Drupal\ddna\Controller\DrupalDnaController::overview'
+    _title: 'Configuration DDNA'
+  requirements:
+    _access: 'TRUE'

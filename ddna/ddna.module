@@ -1,0 +1,120 @@
+<?php
+
+/**
+ * @file
+ * Drupal DNA - automated specification module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function ddna_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'ddna.overview':
+      return '<p>' . t('Provides Drupal documentation to improve growth and stability of what is inside your Drupal DNA specification') . '</p>';
+  }
+}
+
+/**
+ * Implements hook_ddna_registry_plugins().
+ */
+function ddna_ddna_registry_plugins(&$registry_plugins = []) {
+  $ddna_plugin_definition = [
+    'node_connection' => [
+      'group' => 'standard',
+      'node' => 'core',
+      'display' => [
+        'shape' => 'shape_tabbed_table',
+        'seeds' => [
+          'block_type_config_extractor' => [
+            'label' => 'Blocks',
+            'params' => [
+              'regexp' => '/block\.block\.*/',
+            ],
+          ],
+          'bundle_type_config_extractor' => [
+            'label' => 'Bundles',
+            'params' => [
+              'regexp' => '/\.(type|vocabulary|paragraphs_type)\./',
+            ],
+          ],
+          'field_type_config_extractor' => [
+            'label' => 'Fields',
+            'params' => [
+              'regexp' => '/field\.field\.*/',
+            ],
+          ],
+          'menu_type_config_extractor' => [
+            'label' => 'Menus',
+            'params' => [
+              'regexp' => '/system\.menu\.*/',
+            ],
+          ],
+          'view_type_config_extractor' => [
+            'label' => 'Views',
+            'params' => [
+              'regexp' => '/views\.view\.*/',
+            ],
+          ],
+          'image_style_config_extractor' => [
+            'label' => 'Image Styles',
+            'params' => [
+              'regexp' => '/image\.style\.*/',
+            ],
+          ],
+          'image_style_type_config_extractor' => [
+            'label' => 'Image Style Summary',
+            'params' => [
+              'regexp' => '/image\.style\.*/',
+            ],
+          ],
+          'user_role_config_extractor' => [
+            'label' => 'User Roles',
+            'params' => [
+              'regexp' => '/user\.role\.*/',
+            ],
+          ],
+          'workflow_config_extractor' => [
+            'label' => 'Workflows',
+            'params' => [
+              'regexp' => '/workflows\.workflow\.*/',
+            ],
+          ],
+          'workflow_transitions_config_extractor' => [
+            'label' => 'Workflows Transitions',
+            'params' => [
+              'regexp' => '/workflows\.workflow\.*/',
+            ],
+          ],
+          'migrate_config_extractor' => [
+            'label' => 'Migrations',
+            'params' => [
+              'regexp' => '/^migrate_plus\.migration\.[a-z0-9_-]+$/i',
+            ],
+          ],
+        ],
+      ],
+    ],
+  ];
+  $registry_plugins['core'] = $ddna_plugin_definition;
+  return $registry_plugins;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ddna_theme($existing, $type, $theme, $path): array {
+  return [
+    'ddna_tabbed_table' => [
+      'path' => $path . '/templates',
+      'template' => 'ddna_tabbed_table',
+      'variables' => [
+        'tabs' => [],
+        'content' => [],
+        'tab_id' => NULL,
+      ],
+    ],
+  ];
+}

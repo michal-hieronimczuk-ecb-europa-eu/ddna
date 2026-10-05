@@ -1,0 +1,13 @@
+{
+    "name": "drupal/ddna",
+    "description": "Provides Drupal documentation to improve growth and stability of what is inside your Drupal DNA specification",
+    "type": "drupal-module",
+    "homepage": "https://drupal.org/project/ddna",
+    "support": {
+        "issues": "https://drupal.org/project/issues/ddna",
+        "irc": "irc://irc.freenode.org/drupal-contribute",
+        "source": "https://cgit.drupalcode.org/ddna"
+    },
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+}

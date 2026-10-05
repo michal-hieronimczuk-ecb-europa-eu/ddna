@@ -1,0 +1,6 @@
+ddna.specification_summary:
+  title: 'Drupal DNA Specification'
+  description: 'Get a specification of your Drupal instance.'
+  route_name: ddna.specification_summary
+  parent: system.admin_reports
+  weight: -50
